@@ -50,3 +50,18 @@ $igreen:  #4FB744;
   height: calc(100vh - 57px);
   background-color: $iblue;
 }
+
+.incom_branding {
+  transform: rotate(-20deg);
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.login_section {
+  border: 1px solid black;
+  padding: 20px;
+  width: auto;
+  &:hover {
+    box-shadow: 5px 10px #888888;
+  }
+}
