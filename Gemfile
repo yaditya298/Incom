@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 # Database
 gem 'pg'
@@ -25,6 +27,10 @@ gem 'pg'
 gem 'slim'
 gem 'slim-rails'
 gem 'html2slim'
+# gem 'simple_form'
+
+# Authorization
+gem 'devise'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

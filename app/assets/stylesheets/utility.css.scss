@@ -1,0 +1,36 @@
+// variables
+$iblue:   #057ECA;
+$iorange: #FBB22E;
+$igreen:  #4FB744;
+
+// flashbar - styling 
+.flash {
+  position: fixed;
+  z-index: 1;
+}
+
+// navbar - styling
+.workspace .navbar {
+    border-radius: 0px;
+}
+
+.workspace .navbar-inverse {
+  background-color: $iblue;
+  border-bottom: 6px solid $iorange;
+}
+
+.workspace .navbar-inverse .navbar-brand {
+  color: white;
+}
+
+.workspace .navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.workspace .navbar-right {
+  margin-right: 20px;
+}
+
+.workspace .navbar {
+  margin-bottom: 0px;
+}
