@@ -1,24 +1,23 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+= render 'shared/left_side_bar'
+.col-md-6
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+    .panel.panel-primary
+      .panel-heading Sign up
+      .panel-body
+        = devise_error_messages!
+        .input_section[style='padding: 20px;']
+          = f.input :first_name, autofocus: true
+          = f.input :last_name
+          = f.input :aadhar_number, label: 'Aadhar Number'
+          = f.input :email
+          - if @minimum_password_length
+            - hint = "#{@minimum_password_length} characters minimum"
+          - else
+            - hint = ''
+          = f.input :password, hint: hint
+          = f.input :password_confirmation
+      .panel-footer
+        = f.submit "Sign up", class: 'btn btn-primary'
+        |  | 
+        - if controller_name != 'sessions'
+          = link_to "Log in", new_session_path(resource_name)

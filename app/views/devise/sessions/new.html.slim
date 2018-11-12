@@ -1,22 +1,19 @@
-.col-md-6.incom_brand
-  .incom_branding
-    = image_tag 'incom_text.png'
-.col-md-6.login_section
-  h2
-    | Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      br
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      br
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in"
-  = render "devise/shared/links"
+= render 'shared/left_side_bar'
+.col-md-6
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+    .panel.panel-primary
+      .panel-heading Login
+      .panel-body
+        = devise_error_messages!
+        .input_section
+          = f.input :email, autofocus: true
+          = f.input :password
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .panel-footer
+        = f.submit "Log in", class: 'btn btn-primary'
+        |  | 
+        = link_to "Sign up", new_registration_path(resource_name)
+        |  | 
+        = link_to "Forgot your password?", new_password_path(resource_name)

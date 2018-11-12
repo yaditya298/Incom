@@ -27,7 +27,7 @@ gem 'pg'
 gem 'slim'
 gem 'slim-rails'
 gem 'html2slim'
-# gem 'simple_form'
+gem 'simple_form'
 
 # Authorization
 gem 'devise'

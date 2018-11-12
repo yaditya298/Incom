@@ -47,7 +47,7 @@ $igreen:  #4FB744;
 }
 
 .incom_brand {
-  height: calc(100vh - 57px);
+  height: 100vh;
   background-color: $iblue;
 }
 
@@ -60,8 +60,25 @@ $igreen:  #4FB744;
 .login_section {
   border: 1px solid black;
   padding: 20px;
-  width: auto;
   &:hover {
     box-shadow: 5px 10px #888888;
   }
+  // margin: 50px;
+  height: auto;
+}
+
+.action_section {
+  margin-top: 20px;
+}
+
+.panel-body {
+  padding: 30px;
+}
+
+.panel.panel-primary {
+  margin-top: 15px;
+}
+
+.input_section {
+  padding: 20px;
 }
