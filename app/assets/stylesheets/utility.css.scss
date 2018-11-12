@@ -3,12 +3,6 @@ $iblue:   #057ECA;
 $iorange: #FBB22E;
 $igreen:  #4FB744;
 
-// flashbar - styling 
-.flash {
-  position: fixed;
-  z-index: 1;
-}
-
 // navbar - styling
 .workspace .navbar {
     border-radius: 0px;
@@ -33,4 +27,26 @@ $igreen:  #4FB744;
 
 .workspace .navbar {
   margin-bottom: 0px;
+}
+
+// flashbar - styling
+.flash {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  background: rgba(251, 178, 46, 0.8);
+  width: 100%;
+  p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin: 4px;
+  }
+}
+
+.incom_brand {
+  height: calc(100vh - 57px);
+  background-color: $iblue;
 }

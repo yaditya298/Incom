@@ -8,6 +8,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .workspace
-      = render 'layouts/flash_bar'
-      = render 'layouts/nav_bar'
-      = yield
+      .row-fluid
+        = render 'layouts/flash_bar'
+        = render 'layouts/nav_bar'
+      .row-fluid
+        = yield

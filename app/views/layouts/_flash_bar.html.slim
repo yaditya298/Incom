@@ -1,5 +1,7 @@
 .flash
-  p.notice
-    = notice
-  p.alert
-    = alert
+  - if notice
+    p.notice
+      = notice
+  - elsif alert
+    p.alert
+      = alert
