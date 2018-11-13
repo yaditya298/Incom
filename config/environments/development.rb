@@ -48,6 +48,9 @@ Rails.application.configure do
   # Default mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3001 }
 
+  # Default active storage service
+  config.active_storage.service = :local
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

@@ -23,6 +23,9 @@ gem 'jquery-rails'
 # Database
 gem 'pg'
 
+# Storage
+gem 'activestorage'
+
 # Templating
 gem 'slim'
 gem 'slim-rails'
@@ -31,6 +34,9 @@ gem 'simple_form'
 
 # Authorization
 gem 'devise'
+
+# Image Manipulation
+gem 'mini_magick'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

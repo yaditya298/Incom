@@ -10,12 +10,10 @@
           = f.input :last_name
           = f.input :aadhar_number, label: 'Aadhar Number'
           = f.input :email
-          - if @minimum_password_length
-            - hint = "#{@minimum_password_length} characters minimum"
-          - else
-            - hint = ''
+          - hint = @minimum_password_length ? "#{@minimum_password_length} characters minimum" : ''
           = f.input :password, hint: hint
           = f.input :password_confirmation
+          = f.input :avatar, as: :file
       .panel-footer
         = f.submit "Sign up", class: 'btn btn-primary'
         |  | 
