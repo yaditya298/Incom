@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Associations
+  has_many :contacts
+
   # Constants
   NAME_MIN_LENGTH = 3
   NAME_MAX_LENGTH = 15

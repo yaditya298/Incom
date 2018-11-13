@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Specify the page after successful sign in
+  def after_sign_in_path_for(resource)
+    user_contacts_path(resource)
+  end
+
   # Adds the sanitized params for the user model
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name aadhar_number avatar])
