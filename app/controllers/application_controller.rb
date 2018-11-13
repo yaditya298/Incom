@@ -1,3 +1,4 @@
+# Application Controller
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
   before_action :authenticate_user!
@@ -5,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Adds the sanitized params for the user model
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name aadhar_number avatar])
   end
