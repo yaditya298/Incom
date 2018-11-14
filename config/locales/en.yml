@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  contacts:
+    placeholders:
+      name: "Enter buddy's name"
+      email: "yourbuddy@inmar.com"
+      mobile: "Enter 10 digit mobile number"
+      project: "Forget your buddy's project? Now you can add it here"
+      role: "Just to know what your buddy does"
+      address: "Keep your buddy's location ready just in case"
+    hints:
+      mobile: 'Please do not add +91 or 0'
+      email: 'Please enter valid inmar email id'
+    none: 'Looks like you have no buddies'
+    errors:
+      cannot_add_self: Hey! You are trying to be a contact of you! Get yout buddy's email
+  shared:
+    saving: 'Saving...'
