@@ -21,7 +21,8 @@
               td = contact.role
               td = contact.address
     - else
-      p = i('contacts.none')
-      = 'Please click '
-      = link_to 'here', new_user_contact_path(@user)
-      = ' to add one !'
+      .well
+        p = i('contacts.none')
+        = 'Please click '
+        = link_to 'here', new_user_contact_path(current_user)
+        = ' to add one!'
