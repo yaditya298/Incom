@@ -10,6 +10,6 @@ html
     .workspace
       .row-fluid
         = render 'layouts/flash_bar'
-        = render 'layouts/nav_bar'
-      .row-fluid.main_content
+        = render 'layouts/nav_bar', user: current_user
+      .row-fluid.main-content
         = yield

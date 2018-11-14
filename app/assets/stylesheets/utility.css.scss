@@ -2,6 +2,7 @@
 $iblue:   #057ECA;
 $iorange: #FBB22E;
 $igreen:  #4FB744;
+$error:   #A94442;
 
 // navbar - styling
 .workspace .navbar {
@@ -29,6 +30,10 @@ $igreen:  #4FB744;
   margin-bottom: 0px;
 }
 
+.panel-primary > .panel-heading {
+  background-color: $igreen !important;
+}
+
 // flashbar - styling
 .flash {
   position: fixed;
@@ -46,18 +51,18 @@ $igreen:  #4FB744;
   }
 }
 
-.incom_brand {
+.incom-brand {
   height: 100vh;
-  background-color: $iblue;
+  background-color: $igreen;
 }
 
-.incom_branding {
+.incom-branding {
   transform: rotate(-20deg);
-  margin-top: 100px;
+  margin-top: 160px;
   margin-left: 50px;
 }
 
-.login_section {
+.login-section {
   border: 1px solid black;
   padding: 20px;
   &:hover {
@@ -67,11 +72,11 @@ $igreen:  #4FB744;
   height: auto;
 }
 
-.action_section {
+.action-section {
   margin-top: 20px;
 }
 
-.panel-body {
+.panel.panel-body {
   padding: 30px;
 }
 
@@ -79,10 +84,31 @@ $igreen:  #4FB744;
   margin-top: 15px;
 }
 
-.input_section {
+.input-section {
   padding: 20px;
 }
 
-.main_content {
+.main-content {
   margin-top: 51px;
+}
+
+label abbr {
+  color: red;
+}
+
+.back-cover {
+  background-image: url('inmar_background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+  height: 100vh;
+}
+
+// Errors Styling
+#error_explanation {
+  color: $error;
+}
+
+#error_explanation h2 {
+  display: none;
 }

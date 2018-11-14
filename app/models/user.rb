@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   # Associations
   has_many :contacts
 
   # Constants
   NAME_MIN_LENGTH = 3
-  NAME_MAX_LENGTH = 15
+  NAME_MAX_LENGTH = 30
   AADHAR_LENGTH   = 12
   PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,24}$/
 
@@ -20,6 +21,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true, length: {
     minimum: User::NAME_MIN_LENGTH,
     maximum: User::NAME_MAX_LENGTH
+  }
+  validates :email, presence: true, format: {
+    with: Regexp.new('^[\w.+\-]+@inmar\.com$'), multiline: true
   }
   validates :aadhar_number, uniqueness: true, presence: true, length: {
     is: User::AADHAR_LENGTH

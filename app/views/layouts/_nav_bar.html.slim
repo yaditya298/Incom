@@ -7,9 +7,9 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         li.active
           a href="#" Home
         li
-          a href="#" Page 1
+          = link_to 'Buddies', user_contacts_path(user)
         li
-          a href="#" Page 2
+          = link_to 'Groups', '#'
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         li = link_to 'Logout', destroy_user_session_path, method: :delete
