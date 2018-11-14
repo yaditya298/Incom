@@ -1,0 +1,24 @@
+.container
+  .contact-list
+    - if @groups.present?
+      h2 Your Groups
+      table.table.table-responsive.table-hover
+        thead
+          tr
+            th = 'Name'
+            th = 'Description'
+            th = 'Created on'
+            th = 'Member Count'
+        tbody
+          - @groups.each do |contact|
+            tr
+              td = group.name
+              td = group.description
+              td = group.created_at.strftime('')
+              td = 10
+    - else
+      .well
+        p = i('groups.none')
+        = 'Please click '
+        = link_to 'here', new_user_group_path(current_user)
+        = ' to create one!'
