@@ -1,0 +1,12 @@
+.container
+  .contact-list
+    h2 Contact Details
+    hr
+    .well
+      h2 = @contact.name
+      p = "Email: #{@contact.email}"
+      p = "Mobile: #{@contact.mobile}"
+      p = "Address: #{@contact.address}"
+  .pull-right
+    |  | 
+    = link_to :back, :back

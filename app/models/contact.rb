@@ -6,6 +6,28 @@ class Contact < ApplicationRecord
   MOBILE_NUMBER_LENGTH = 10
 
   # Validations
-  validates :name, presence: true
-  validates :contact_number, presence: true, length: { is: Contact::MOBILE_NUMBER_LENGTH }
+  validates :name, presence: true, length: {
+    minimum: User::NAME_MIN_LENGTH,
+    maximum: User::NAME_MAX_LENGTH
+  }
+
+  validates :email,  presence: true, uniqueness: {
+    scope: [:user_id, :email]
+  },
+  format: {
+    with: Regexp.new('^[\w.+\-]+@inmar\.com$'), multiline: true
+  }
+
+  validates :mobile, presence: true, uniqueness: {
+    scope: [:user_id, :mobile]
+  },
+  length: { is: Contact::MOBILE_NUMBER_LENGTH }
+
+  validate :cannot_add_self
+
+  def cannot_add_self
+    if email == user.email
+      errors.add :base, I18n.t('contacts.errors.cannot_add_self')
+    end
+  end
 end

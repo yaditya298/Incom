@@ -1,4 +1,27 @@
-- @contacts.each do |contact|
-  = contact.name
-  = contact.email
-  = contact.mobile
+.container
+  .contact-list
+    - if @contacts.present?
+      h2 Your Buddies
+      table.table.table-responsive.table-hover
+        thead
+          tr
+            th = 'Name'
+            th = 'Email'
+            th = 'Mobile'
+            th = 'Project'
+            th = 'Role'
+            th = 'Address'
+        tbody
+          - @contacts.each do |contact|
+            tr
+              td = contact.name
+              td = contact.email
+              td = contact.mobile
+              td = contact.project
+              td = contact.role
+              td = contact.address
+    - else
+      p = i('contacts.none')
+      = 'Please click '
+      = link_to 'here', new_user_contact_path(@user)
+      = ' to add one !'
