@@ -1,24 +1,27 @@
-.container
+.container-fluid
   .contact-list
-    - if @groups.present?
-      h2 Your Groups
-      table.table.table-responsive.table-hover
-        thead
-          tr
-            th = 'Name'
-            th = 'Description'
-            th = 'Created on'
-            th = 'Member Count'
-        tbody
-          - @groups.each do |contact|
+    = render 'shared/left_navigation', user: current_user
+    .col-md-9
+      - if @groups.present?
+        h2 Your Groups
+        table.table.table-responsive.table-hover
+          thead
             tr
-              td = group.name
-              td = group.description
-              td = group.created_at.strftime('')
-              td = 10
-    - else
-      .well
-        p = i('groups.none')
-        = 'Please click '
-        = link_to 'here', new_user_group_path(current_user)
-        = ' to create one!'
+              th = 'Name'
+              th = 'Description'
+              th = 'Created on'
+              th = 'Member Count'
+          tbody
+            - @groups.each do |group|
+              tr
+                td = group.name
+                td = group.description.truncate(Group::TRUNCATE_LENGTH)
+                td data-toggle='tooltip' data-placement='top' title="#{group.created_at.strftime("#{group.created_at.day.ordinalize} %h %Y %H:%M%P")}"
+                  = time_ago_in_words(group.created_at, include_seconds: true)
+                td = 10
+      - else
+        .well
+          p = i('groups.none')
+          = 'Please click '
+          = link_to 'here', new_user_group_path(current_user)
+          = ' to create one!'

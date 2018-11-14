@@ -8,3 +8,4 @@ $ ->
     $('.flash').fadeOut 'slow', ->
       $(this).remove()
   ), 1500
+  $('[data-toggle="tooltip"]').tooltip()

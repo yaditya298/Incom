@@ -4,6 +4,9 @@ class Group < ApplicationRecord
   has_many :connections
   has_many :contacts, through: :connections
 
+  # Constants
+  TRUNCATE_LENGTH = 80
+
   # Validations
   validates :name, presence: true, length: {
     minimum: User::NAME_MIN_LENGTH,
