@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many :contacts, through: :connections
 
   # Constants
-  TRUNCATE_LENGTH = 80
+  TRUNCATE_LENGTH = 40
 
   # Validations
   validates :name, presence: true, length: {
