@@ -1,3 +1,24 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Variables
+$iorange: #FBB22E;
+$igreen:  #4FB744;
+
+.contact-list {
+  margin-top: 50px;
+  p {
+    font-size: 20px;
+  }
+  .panel-body {
+    padding: 50px;
+  }
+}
+
+.form-group {
+  p {
+    font-size: 13px;
+    font-style: italic;
+  }
+}
