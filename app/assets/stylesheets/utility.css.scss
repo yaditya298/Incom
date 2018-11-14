@@ -107,8 +107,12 @@ label abbr {
 // Errors Styling
 #error_explanation {
   color: $error;
+  h2 { display: none; }
+  li { list-style: none; }
 }
 
-#error_explanation h2 {
-  display: none;
+.current-list {
+  border-left: 5px solid $igreen !important;
+  font-weight: bold;
+  color: $igreen !important;
 }
