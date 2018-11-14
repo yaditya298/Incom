@@ -34,7 +34,7 @@ en:
   contacts:
     placeholders:
       name: "Enter buddy's name"
-      email: "yourbuddy@inmar.com"
+      email: "yourbuddy@%{domain}"
       mobile: "Enter 10 digit mobile number"
       project: "Forget your buddy's project? Now you can add it here"
       role: "Just to know what your buddy does"
@@ -50,5 +50,15 @@ en:
     placeholders:
       name: 'Name your group'
       description: 'You may want to describe about your awesome group'
+  users:
+    placeholders:
+      first_name: 'John'
+      last_name: 'Doe'
+      aadhar_number: '123443211001'
+      email: "example@%{domain}"
+      password: 'Enter a strong password'
+      password_confirmation: 'The same strong password goes here!'
+    hints:
+      avatar: 'Attach that awesome profile picture of yours'
   shared:
     saving: 'Saving...'
