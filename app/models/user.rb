@@ -24,7 +24,9 @@ class User < ApplicationRecord
     maximum: User::NAME_MAX_LENGTH
   }
   validates :email, presence: true, format: {
-    with: Regexp.new('^[\w.+\-]+@inmar\.com$'), multiline: true
+    with: Regexp.new('^[\w.+\-]+@inmar\.com$'),
+    multiline: true,
+    message: 'should be a valid Inmar email id'
   }
   validates :aadhar_number, uniqueness: true, presence: true, length: {
     is: User::AADHAR_LENGTH
