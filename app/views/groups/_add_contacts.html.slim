@@ -22,6 +22,9 @@
               = contact.name.titleize
               |  |  
               = contact.mobile
-              span.pull-right = link_to 'Add', '#', class: 'btn btn-success btn-sm'
+              / span.pull-right = link_to 'Add', '#', remote: true, class: 'btn btn-success btn-sm add_contact', 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path
+              - checked_value = true
+              span.pull-right
+                = check_box_tag 'Add', true, nil, class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
       .modal-footer
         button type="button" class="btn btn-default" data-dismiss="modal" Close
