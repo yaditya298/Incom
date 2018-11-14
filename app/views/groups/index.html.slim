@@ -1,7 +1,7 @@
-.container-fluid
+.container
   .contact-list
     = render 'shared/left_navigation', user: current_user
-    .col-md-9
+    .col-md-8
       - if @groups.present?
         h2 Your Groups
         table.table.table-responsive.table-hover
