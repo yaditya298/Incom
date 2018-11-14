@@ -44,7 +44,8 @@ en:
       email: 'Please enter valid inmar email id'
     none: 'Looks like you have no buddies'
     errors:
-      cannot_add_self: Hey! You are trying to be a contact of you! Get yout buddy's email
+      cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email"
+      email_message: 'should be a valid Inmar email id'
   groups:
     none: 'Uh-oh! your groups are empty but not your gusto!!'
     placeholders:

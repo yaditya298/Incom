@@ -1,0 +1,27 @@
+.modal.fade id="add_contacts_#{group.id}" role="dialog"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" &times;
+        h4 class="modal-title" 
+          | Add contacts to <span style="color: #4FB744">#{group.name.titleize}</span>
+      .modal-body
+        / table.table.table-hover.table-responsive
+        /   thead
+        /     tr
+        /       th = 'Name'
+        /       th = 'email'
+        /   tbody
+        /     tr
+        /       - user.contacts.each do |contact|
+        /         td = contact.name
+        /         td = contact.email
+        ul.list-group
+          - user.contacts.each do |contact|
+            li.list-group-item
+              = contact.name.titleize
+              |  |  
+              = contact.mobile
+              span.pull-right = link_to 'Add', '#', class: 'btn btn-success btn-sm'
+      .modal-footer
+        button type="button" class="btn btn-default" data-dismiss="modal" Close

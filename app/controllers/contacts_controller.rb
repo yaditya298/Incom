@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.create(contact_params)
     if @contact.save
-      redirect_to user_contact_path(current_user, @contact)
+      redirect_to user_contacts_path(current_user)
     else
       render :new
     end

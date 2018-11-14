@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :email, presence: true, format: {
     with: Regexp.new('^[\w.+\-]+@inmar\.com$'),
     multiline: true,
-    message: 'should be a valid Inmar email id'
+    message: I18n.t('contacts.errors.email_message')
   }
   validates :aadhar_number, uniqueness: true, presence: true, length: {
     is: User::AADHAR_LENGTH
