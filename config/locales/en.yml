@@ -45,5 +45,10 @@ en:
     none: 'Looks like you have no buddies'
     errors:
       cannot_add_self: Hey! You are trying to be a contact of you! Get yout buddy's email
+  groups:
+    none: 'Uh-oh! your groups are empty but not your gusto!!'
+    placeholders:
+      name: 'Name your group'
+      description: 'You may want to describe about your awesome group'
   shared:
     saving: 'Saving...'
