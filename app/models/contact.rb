@@ -1,6 +1,8 @@
 class Contact < ApplicationRecord
   # Associations
   belongs_to :user
+  has_many :connections
+  has_many :groups, through: :connections
 
   # Constants
   MOBILE_NUMBER_LENGTH = 10

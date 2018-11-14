@@ -1,6 +1,8 @@
 class Group < ApplicationRecord
   # Associations
   belongs_to :user
+  has_many :connections
+  has_many :contacts, through: :connections
 
   # Validations
   validates :name, presence: true, length: {
