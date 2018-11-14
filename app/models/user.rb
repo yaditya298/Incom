@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   # Associations
   has_many :contacts
+  has_many :groups
 
   # Constants
   NAME_MIN_LENGTH = 3
