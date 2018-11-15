@@ -29,13 +29,15 @@ class ConnectionsController < ApplicationController
     render json: { success:  connection.destroy! }
   end
 
-  # Method to add multiple contacts to a group at once
+  # Method to add multiple contacts to a group at once using multi select check_box
   # group_id: Group which the user wants to add contacts
   def add_multiple
-    group = Group.find(params[:connection][:group_id])
-    current_user.contacts.each do |contact|
-      contact.connections.create(group_id: params[:connection][:group_id])
+    @group = Group.find(params[:group_id])
+    contacts = current_user.contacts.where(id: params[:contact_ids])
+    contacts.each do |contact|
+      contact.connections.create(group_id: params[:group_id])
     end
+    @members_count = @group.reload.connections.size
   end
 
   private
