@@ -7,7 +7,7 @@
         table.table.table-responsive.table-hover
           thead
             tr
-              - %w[Name Description Created\ on Member\ Count].each do |header|
+              - %w[Name Description Created Member\ Count].each do |header|
                 th = header
           tbody
             - @groups.each do |group|
@@ -15,8 +15,8 @@
                 td.col-md-2 = group.name
                 td.col-md-4 = group.description.truncate(Group::TRUNCATE_LENGTH)
                 td.col-md-2 data-toggle='tooltip' data-placement='top' title="#{group.created_at.strftime("#{group.created_at.day.ordinalize} %h %Y %H:%M%P")}"
-                  = time_ago_in_words(group.created_at, include_seconds: true)
-                td.col-md-2 = group.connections.size
+                  = time_ago_in_words(group.created_at, include_seconds: true).to_s + ' ago'
+                td.col-md-2 class="member_count_#{group.id}" = group.connections.size
                 td.col-md-2
                   = link_to 'Add Contacts', '#', class: 'btn btn-primary btn-sm', 'data-toggle': 'modal', 'data-target': "#add_contacts_#{group.id}"
               = render 'add_contacts', group: group, contacts: @user_contacts, user: current_user

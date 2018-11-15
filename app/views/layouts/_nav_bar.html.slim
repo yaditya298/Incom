@@ -12,13 +12,21 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           = link_to 'Groups', user_groups_path(user)
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
-        li = link_to 'Logout', destroy_user_session_path, method: :delete
+        - if user.admin?
+          li
+            = link_to domains_path do
+              span.glyphicon.glyphicon-cog
+              |  Settings
+        li
+          = link_to destroy_user_session_path, method: :delete do
+            span.glyphicon.glyphicon-off
+            |  Logout
       - else
         li
-          a href="#"
-            / span.glyphicon.glyphicon-user Sign Up
-            | Sign Up
+          = link_to new_registration_path(resource_name) do
+            span.glyphicon.glyphicon-user
+            |  Sign Up
         li
-          a href="#"
-            / span.glyphicon.glyphicon-log-in Login
-            | Login
+          = link_to new_session_path(resource_name) do
+            span.glyphicon.glyphicon-log-in
+            |  Login
