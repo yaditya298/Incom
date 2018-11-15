@@ -30,8 +30,11 @@ $error:   #A94442;
   margin-bottom: 0px;
 }
 
-.panel-primary > .panel-heading {
-  background-color: $igreen !important;
+.panel-primary {
+  border-color: $igreen !important;
+  .panel-heading {
+    background-color: $igreen !important;
+  }
 }
 
 // flashbar - styling
