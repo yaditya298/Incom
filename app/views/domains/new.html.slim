@@ -1,0 +1,5 @@
+.container
+  .contact-list
+    = render 'shared/domain_navigation', user: current_user
+    .col-md-8
+      = render 'form', domain: @domain, user: current_user, button_text: 'Create'
