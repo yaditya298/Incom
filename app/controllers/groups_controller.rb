@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   private
 
-  # Method to whitelist the contact params
+  # Method to whitelist the group params
   def group_params
     params.require(:group).permit(:name, :description)
   end
