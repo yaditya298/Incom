@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     get :check_info, on: :collection
     post :add_multiple, on: :collection
   end
+  resources :domains do
+    post :set, on: :member
+  end
 end

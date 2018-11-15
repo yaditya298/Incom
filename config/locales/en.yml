@@ -41,11 +41,11 @@ en:
       address: "Keep your buddy's location ready just in case"
     hints:
       mobile: 'Please do not add +91 or 0'
-      email: 'Please enter valid inmar email id'
+      email: "Please enter valid %{domain} email"
     none: 'Looks like you have no buddies'
     errors:
       cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email"
-      email_message: 'should be a valid Inmar email id'
+      email_message: 'should be a valid %{domain} email id'
   groups:
     none: 'Uh-oh! your groups are empty but not your gusto!!'
     placeholders:
@@ -61,5 +61,12 @@ en:
       password_confirmation: 'The same strong password goes here!'
     hints:
       avatar: 'Attach that awesome profile picture of yours'
+  domains:
+    none1: 'MayDay! There are no domains set for your application.'
+    none2: 'Its very dangerous as users cannot create their accounts'
+    placeholders:
+      name: 'Example domains are @inmar.com, @im.co, etc'
   shared:
     saving: 'Saving...'
+    sending: 'Sending...'
+    working: 'Working...'
