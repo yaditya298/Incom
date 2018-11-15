@@ -24,9 +24,9 @@ class User < ApplicationRecord
     maximum: User::NAME_MAX_LENGTH
   }
   validates :email, presence: true, format: {
-    with: Regexp.new('^[\w.+\-]+@inmar\.com$'),
+    with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
     multiline: true,
-    message: I18n.t('contacts.errors.email_message')
+    message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
   }
   validates :aadhar_number, uniqueness: true, presence: true, length: {
     is: User::AADHAR_LENGTH
@@ -40,5 +40,9 @@ class User < ApplicationRecord
 
   def admin?
     role == 'admin'
+  end
+
+  def full_name
+    [first_name, last_name].join(' ').titleize
   end
 end

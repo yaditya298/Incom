@@ -17,9 +17,9 @@ class Contact < ApplicationRecord
     scope: [:user_id, :email]
   },
   format: {
-    with: Regexp.new('^[\w.+\-]+@inmar\.com$'),
+    with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
     multiline: true,
-    message: I18n.t('contacts.errors.email_message')
+    message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
   }
 
   validates :mobile, presence: true, uniqueness: {
