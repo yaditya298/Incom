@@ -10,7 +10,7 @@
           .input-section
             = f.input :email, autofocus: true, autocomplete: "email", hint: 'Enter your registered email we will send you password reset instructions'
         .panel-footer
-          = f.submit "Send me reset password instructions", class: 'btn btn-primary'
+          = f.submit "Send me reset password instructions", class: 'btn btn-primary', 'data-disable-with': i('shared.sending')
           |  | 
           = link_to "Log in", new_session_path(resource_name)
           |  | 

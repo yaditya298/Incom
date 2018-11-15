@@ -5,38 +5,30 @@
         button type="button" class="close" data-dismiss="modal" &times;
         h4 class="modal-title" 
           | Add contacts to 
-          span.group-title = group.name.titleize
-        - if contacts.present?
-          .pull-right
-            = simple_form_for :connection, url: add_multiple_connections_path, remote: true do |f|
-              = f.input :group_id,   as: :hidden, input_html: { value: group.id }
-              = f.submit 'Add all'
-      .modal-body
-        / table.table.table-hover.table-responsive
-        /   thead
-        /     tr
-        /       th = 'Name'
-        /       th = 'email'
-        /   tbody
-        /     tr
-        /       - user.contacts.each do |contact|
-        /         td = contact.name
-        /         td = contact.email
-        ul.list-group
-          - if contacts.present?
-            - contacts.each do |contact|
-              li.list-group-item
-                = contact.name.titleize
-                |  |  
-                = contact.mobile
-                / span.pull-right = link_to 'Add', '#', remote: true, class: 'btn btn-success btn-sm add_contact', 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path
-                - checked_value = true
-                span.pull-right
-                  = check_box_tag 'Add', true, get_checked_value(contact.id, group.id), class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
-          - else
-            p = i('contacts.none')
-            = 'Please click '
-            = link_to 'here', new_user_contact_path(user)
-            = ' to add one!'
-      .modal-footer
-        button type="button" class="btn btn-default" data-dismiss="modal" Close
+          span.group-title = group.name
+        .pull-right.multi_check
+          = 'Select All'
+          |  
+          = check_box_tag 'select_all', true, get_checked_property(group), class: 'select_all', id: "select_all_#{group.id}", 'data-group-id': group.id
+      = form_tag add_multiple_connections_path, remote: true do
+        .modal-body
+          ul.list-group
+            - if contacts.present?
+              = hidden_field_tag :group_id, group.id
+              - contacts.each do |contact|
+                li.list-group-item
+                  = contact.name.titleize
+                  |  |  
+                  = contact.mobile
+                  - checked_value = true
+                  span.pull-right
+                    = check_box_tag 'contact_ids[]', contact.id, get_checked_value(contact.id, group.id), class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
+            - else
+              p = i('contacts.none')
+              = 'Please click '
+              = link_to 'here', new_user_contact_path(user)
+              = ' to add one!'
+        .modal-footer
+          .pull-left
+            = submit_tag 'Add Selected', class: 'js_multi_submit btn btn-primary', 'data-disable-with': i('shared.saving'), disabled: true
+          button type="button" class="btn btn-default" data-dismiss="modal" Close
