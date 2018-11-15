@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :connections do
     get :check_info, on: :collection
+    post :add_multiple, on: :collection
   end
 end
