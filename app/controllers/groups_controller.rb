@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(group_params)
     if @group.save
-      redirect_to user_group_path(current_user, @group)
+      redirect_to user_groups_path
     else
       render :new
     end
