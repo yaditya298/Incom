@@ -4,7 +4,8 @@
       .modal-header
         button type="button" class="close" data-dismiss="modal" &times;
         h4 class="modal-title" 
-          | Add contacts to <span style="color: #4FB744">#{group.name.titleize}</span>
+          | Add contacts to 
+          span.group-title = group.name.titleize
         - if contacts.present?
           .pull-right
             = simple_form_for :connection, url: add_multiple_connections_path, remote: true do |f|
