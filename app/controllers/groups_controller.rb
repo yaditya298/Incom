@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = current_user.groups
+    @user_contacts = current_user.contacts
   end
 
   private

@@ -1,14 +1,9 @@
 class ConnectionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
   def create
     group = Group.find(params[:group_id])
     connection = group.connections.new(connection_params)
     render json: { status: connection.save }
-  end
-
-  def destroy
-    connection = Connection.find(params[:id])
-    render json: { success:  connection.destroy! }
   end
 
   def check_info
@@ -23,6 +18,18 @@ class ConnectionsController < ApplicationController
       { status: false }
     end
     render json: json_details
+  end
+
+  def destroy
+    connection = Connection.find(params[:id])
+    render json: { success:  connection.destroy! }
+  end
+
+  def add_multiple
+    group = Group.find(params[:connection][:group_id])
+    current_user.contacts.each do |contact|
+      contact.connections.create(group_id: params[:connection][:group_id])
+    end
   end
 
   private
