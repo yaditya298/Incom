@@ -1,6 +1,7 @@
 # Application Controller
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception, prepend: true
+  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format =~ %r{application/json} }
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
