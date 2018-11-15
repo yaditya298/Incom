@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
 
   # Associations
-  has_many :contacts
-  has_many :groups
+  has_many :contacts, dependent: :destroy
+  has_many :groups, dependent: :destroy
 
   # Constants
   NAME_MIN_LENGTH = 3
   NAME_MAX_LENGTH = 30
   AADHAR_LENGTH   = 12
-  PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,24}$/
+  PASSWORD_REGEX  = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,24}$/
 
   # Attachments
   has_one_attached :avatar
@@ -36,5 +36,9 @@ class User < ApplicationRecord
   def password_complexity
     return if password.blank? || password.match?(PASSWORD_REGEX)
     errors.add :password, 'must include atleast 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  end
+
+  def admin?
+    role == 'admin'
   end
 end

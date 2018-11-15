@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = current_user.groups
+    @groups = current_user.groups.order(created_at: :desc)
     @user_contacts = current_user.contacts
   end
 

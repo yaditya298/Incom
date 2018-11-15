@@ -1,7 +1,7 @@
 class Group < ApplicationRecord
   # Associations
   belongs_to :user
-  has_many :connections
+  has_many :connections, dependent: :destroy
   has_many :contacts, through: :connections
 
   # Constants

@@ -3,7 +3,8 @@ class CreateDomains < ActiveRecord::Migration[5.1]
     create_table :domains do |t|
       t.string :domain
       t.boolean :primary
-      t.references :added_by, foreign_key: true
+      t.integer :added_by_id, foreign_key: true
+      t.integer :updater_id
 
       t.timestamps
     end
