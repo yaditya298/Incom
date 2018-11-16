@@ -66,6 +66,7 @@ en:
       password_confirmation: 'The same strong password goes here!'
     hints:
       avatar: 'Attach that awesome profile picture of yours'
+    delegate_info: "<span style='color: red'><superscript>#</superscript></span> - If you don't want to be an admin add any other user as admin and ask him/her to remove your name as admin"
   connections:
     alerts:
       notice: "Selected buddie(s) have been added to the group %{group}"
@@ -82,3 +83,5 @@ en:
     sending: 'Sending...'
     working: 'Working...'
     alert: 'Please review the errors below'
+    denied: 'You shall not pass. Permission Denied'
+    this_is_you: "This is you<span style='color: red'><superscript>#</superscript></span>"
