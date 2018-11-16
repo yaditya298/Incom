@@ -1,0 +1,9 @@
+.flash-content
+  - if notice
+    .flash.flash-success
+      p.notice
+        = notice
+  - elsif alert
+    .flash.flash-alert
+      p.notice
+        = alert

@@ -1,0 +1,17 @@
+= simple_form_for [user, contact], html: { class: 'form-horizontal' } do |f|
+  .panel.panel-primary
+    .panel-heading
+      = 'Create Buddy'
+    .panel-body
+      = f.error_notification
+      = render 'shared/errors', error_object: contact
+      = f.input :name,    placeholder: i('contacts.placeholders.name'),    class: 'form-control', required: true, value: contact.name
+      = f.input :email,   placeholder: i('contacts.placeholders.email', domain: Domain.current.name), class: 'form-control', hint: i('contacts.hints.email', domain: Domain.current.name), value: contact.email
+      = f.input :mobile,  placeholder: i('contacts.placeholders.mobile'),  class: 'form-control', required: true, hint: i('contacts.hints.mobile'), value: contact.mobile
+      = f.input :project, placeholder: i('contacts.placeholders.project'), class: 'form-control', value: contact.project
+      = f.input :role,    placeholder: i('contacts.placeholders.role'),    class: 'form-control', value: contact.role
+      = f.input :address, placeholder: i('contacts.placeholders.address'), class: 'form-control', value: contact.address
+    .panel-footer
+      = f.submit button_text, class: 'btn btn-primary', 'data-disable-with': i('shared.saving')
+      |  | 
+      = link_to :back, :back

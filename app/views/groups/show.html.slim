@@ -1,0 +1,10 @@
+.container
+  .contact-list
+    h2 Group Details
+    hr
+    .well
+      h2 = @group.name
+      p = @group.description
+  .pull-right
+    |  | 
+    = link_to :back, :back

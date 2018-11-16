@@ -1,0 +1,30 @@
+.container
+  .contact-list
+    = render 'shared/domain_navigation', user: current_user
+    .col-md-8
+      - if @domains.present?
+        h2 Domains inventory
+        hr
+        table.table.table-responsive.table-hover
+          thead
+            tr
+              - %w[Domain Created\ By Created].each do |header|
+                th = header
+          tbody
+            - @domains.each do |domain|
+              tr
+                td.col-md-2 = domain.name
+                td.col-md-4 = domain.added_by&.full_name
+                td.col-md-2.date-tool-tip data-toggle='tooltip' title="#{domain.created_at.strftime("#{domain.created_at.day.ordinalize} %h %Y %H:%M%P")}"
+                  = time_ago_in_words(domain.created_at, include_seconds: true).to_s + ' ago'
+                td.col-md-2
+                  = radio_button_tag 'Add', true, domain.current?, class: 'js-set-domain', id: "domain_#{domain.id}", 'data-domain-id': domain.id, 'data-url': set_domain_path(domain), data: {confirm: 'Are you sure?'}
+                  |  
+                  = 'Mark as current'
+      - else
+        .well
+          p = i('domains.none1')
+          p = i('domains.none2')
+          = 'Please click '
+          = link_to 'here', new_domain_path
+          = ' to add one immediately!'

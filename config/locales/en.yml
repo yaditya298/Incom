@@ -31,3 +31,57 @@
 
 en:
   hello: "Hello world"
+  contacts:
+    placeholders:
+      name: "Enter buddy's name"
+      email: "yourbuddy@%{domain}"
+      mobile: "Enter 10 digit mobile number"
+      project: "Forget your buddy's project? Now you can add it here"
+      role: "Just to know what your buddy does"
+      address: "Keep your buddy's location ready just in case"
+    hints:
+      mobile: 'Please do not add +91 or 0'
+      email: "Please enter valid %{domain} email"
+    none: 'Looks like you have no buddies'
+    alerts:
+      notice: 'Buddy created successfully!'
+      update_notice: 'Buddy updated successfully!'
+    errors:
+      cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email"
+      email_message: 'should be a valid %{domain} email id'
+  groups:
+    none: 'Uh-oh! your groups are empty but not your gusto!!'
+    placeholders:
+      name: 'Name your group'
+      description: 'You may want to describe about your awesome group'
+    alerts:
+      notice: 'Group created successfully'
+  users:
+    placeholders:
+      first_name: 'John'
+      last_name: 'Doe'
+      aadhar_number: '123443211001'
+      email: "example@%{domain}"
+      password: 'Enter a strong password'
+      password_confirmation: 'The same strong password goes here!'
+    hints:
+      avatar: 'Attach that awesome profile picture of yours'
+    delegate_info: "<span style='color: red'><superscript>#</superscript></span> - If you don't want to be an admin add any other user as admin and ask him/her to remove your name as admin"
+  connections:
+    alerts:
+      notice: "Selected buddie(s) have been added to the group %{group}"
+      alert: "Selected buddie(s) have been removed from the group %{group}"
+  domains:
+    none1: 'MayDay! There are no domains set for your application.'
+    none2: 'Its very dangerous as users cannot create their accounts'
+    placeholders:
+      name: 'Example domains are @inmar.com, @im.co, etc'
+    alerts:
+      notice: 'Domain added successfully'
+  shared:
+    saving: 'Saving...'
+    sending: 'Sending...'
+    working: 'Working...'
+    alert: 'Please review the errors below'
+    denied: 'You shall not pass. Permission Denied'
+    this_is_you: "This is you<span style='color: red'><superscript>#</superscript></span>"

@@ -1,0 +1,32 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  container-fluid
+    navbar-header
+      a.navbar-brand href="#" InCoM
+    - if user_signed_in?
+      ul.nav.navbar-nav
+        li.active
+          a href="#" Home
+        li
+          = link_to 'Buddies', user_contacts_path(user)
+        li
+          = link_to 'Groups', user_groups_path(user)
+    ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        - if user.admin?
+          li
+            = link_to domains_path do
+              span.glyphicon.glyphicon-cog
+              |  Settings
+        li
+          = link_to destroy_user_session_path, method: :delete do
+            span.glyphicon.glyphicon-off
+            |  Logout
+      - else
+        li
+          = link_to new_registration_path(resource_name) do
+            span.glyphicon.glyphicon-user
+            |  Sign Up
+        li
+          = link_to new_session_path(resource_name) do
+            span.glyphicon.glyphicon-log-in
+            |  Login

@@ -1,0 +1,34 @@
+.modal.fade id="add_contacts_#{group.id}" role="dialog"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" &times;
+        h4 class="modal-title" 
+          | Add contacts to 
+          span.group-title = group.name
+        .pull-right.multi_check
+          = 'Select All'
+          |  
+          = check_box_tag 'select_all', true, get_checked_property(group), class: 'select_all', id: "select_all_#{group.id}", 'data-group-id': group.id
+      = form_tag add_multiple_connections_path, remote: true do
+        .modal-body
+          ul.list-group
+            - if contacts.present?
+              = hidden_field_tag :group_id, group.id
+              - contacts.each do |contact|
+                li.list-group-item
+                  = contact.name.titleize
+                  |  |  
+                  = contact.mobile
+                  - checked_value = true
+                  span.pull-right
+                    = check_box_tag 'contact_ids[]', contact.id, group.contacts.ids.include?(contact.id), class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
+            - else
+              p = i('contacts.none')
+              = 'Please click '
+              = link_to 'here', new_user_contact_path(user)
+              = ' to add one!'
+        .modal-footer
+          .pull-left
+            = submit_tag 'Add Selected', class: 'js_multi_submit btn btn-primary', 'data-disable-with': i('shared.saving'), disabled: true
+          button type="button" class="btn btn-default" data-dismiss="modal" Close

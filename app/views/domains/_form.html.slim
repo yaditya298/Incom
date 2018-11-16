@@ -1,0 +1,13 @@
+= simple_form_for @domain, html: { class: 'form-horizontal' } do |f|
+  .panel.panel-primary
+    .panel-heading
+      = 'Create Domain'
+    .panel-body
+      = f.error_notification
+      = render 'shared/errors', error_object: @domain
+      = f.input :name, placeholder: i('domains.placeholders.name'), class: 'form-control', required: true, value: domain.name
+      = f.input :added_by_id, as: :hidden, input_html: { value: user.id }
+    .panel-footer
+      = f.submit button_text, class: 'btn btn-primary', 'data-disable-with': i('shared.saving')
+      |  | 
+      = link_to :back, :back
