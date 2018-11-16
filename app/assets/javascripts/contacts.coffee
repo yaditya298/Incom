@@ -18,6 +18,8 @@ $(document).on 'change', '.connection-info', ->
   checked_count = $('#add_contacts_' + group_id + ' input:checked').length
   if $('#select_all_' + group_id).is(':checked')
     checked_count = checked_count - $('#select_all_' + group_id).length
+  if checked_count == 0
+    $('.js_multi_submit').attr('disabled', true)
   total_count = $('#add_contacts_' + group_id + ' .connection-info').length
   if checked_count != total_count
     $('#select_all_' + group_id).prop('checked', false)

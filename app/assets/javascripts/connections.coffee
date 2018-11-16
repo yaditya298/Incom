@@ -3,13 +3,20 @@
 # # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  flash = (html_markup) ->
+    $('.flash-content').html(html_markup);
+    $('.flash-content').fadeIn 'normal', ->
+      $(this).delay(2000).fadeOut(2000)
+
   destroy_connection = (url) ->
     $.ajax
       type: 'DELETE'
       url: url
+      dataType: 'JSON'
       success: (data) ->
         if data.success
-          $('')
+          html = '<div class="flash flash-alert"><p class="notice">' + data.alert_message + '</p></div>'
+          flash(html)
           $('.member_count_' + data.group_id).text data.members_count
           $('.member_count_' + data.group_id).effect 'highlight', 3000
 

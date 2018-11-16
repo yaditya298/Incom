@@ -13,7 +13,6 @@ $ ->
         domain:
           id: $(this).data('domain-id')
       success: (data) ->
-        debugger
         if data.status
           html = '<div class="flash flash-success"><p class="notice">' + data.domain + ' has been made the current domain</p></div>'
         else
