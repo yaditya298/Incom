@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Makes the user selected domain as current domain
 $ ->
   $(document).on 'change', '.set-domain', ->
     $.ajax
@@ -12,7 +13,10 @@ $ ->
         domain:
           id: $(this).data('domain-id')
       success: (data) ->
+        debugger
         if data.status
-          alert 'yay'
+          html = '<div class="flash flash-success"><p class="notice">' + data.domain + ' has been made the current domain</p></div>'
         else
-          alert 'nay'
+          html = '<div class="flash flash-alert">Could not update the domain. Something went wrong<p class="alert"></p></div>'
+        $('.flash-content').html html
+

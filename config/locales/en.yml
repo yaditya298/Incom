@@ -43,6 +43,9 @@ en:
       mobile: 'Please do not add +91 or 0'
       email: "Please enter valid %{domain} email"
     none: 'Looks like you have no buddies'
+    alerts:
+      notice: 'Buddy created successfully!'
+      update_notice: 'Buddy updated successfully!'
     errors:
       cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email"
       email_message: 'should be a valid %{domain} email id'
@@ -51,6 +54,8 @@ en:
     placeholders:
       name: 'Name your group'
       description: 'You may want to describe about your awesome group'
+    alerts:
+      notice: 'Group created successfully'
   users:
     placeholders:
       first_name: 'John'
@@ -61,12 +66,18 @@ en:
       password_confirmation: 'The same strong password goes here!'
     hints:
       avatar: 'Attach that awesome profile picture of yours'
+  connections:
+    alerts:
+      notice: "Selected buddies have been added to the group %{group}"
   domains:
     none1: 'MayDay! There are no domains set for your application.'
     none2: 'Its very dangerous as users cannot create their accounts'
     placeholders:
       name: 'Example domains are @inmar.com, @im.co, etc'
+    alerts:
+      notice: 'Domain added successfully'
   shared:
     saving: 'Saving...'
     sending: 'Sending...'
     working: 'Working...'
+    alert: 'Please review the errors below'

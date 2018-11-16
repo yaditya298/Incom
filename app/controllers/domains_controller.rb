@@ -6,9 +6,10 @@ class DomainsController < ApplicationController
   def create
     @domain = Domain.new(domain_params)
     if @domain.save
-      flash[:notice] = 'saved'
+      flash[:notice] = I18n.t('domains.alerts.notice')
       redirect_to domains_path
     else
+      flash[:alert] = I18n.t('shared.alert')
       render :new
     end
   end
@@ -25,7 +26,7 @@ class DomainsController < ApplicationController
         status = Domain.update_all(current: nil) && @domain.update_attributes(current: true)
       end
     end
-    render json: { status: status }
+    render json: { status: status, domain: @domain.name }
   end
 
   private

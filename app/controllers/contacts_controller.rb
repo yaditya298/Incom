@@ -9,8 +9,10 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.create(contact_params)
     if @contact.save
+      flash[:notice] = I18n.t('contacts.alerts.notice')
       redirect_to user_contacts_path(current_user)
     else
+      flash.now[:alert] = I18n.t('shared.alert')
       render :new
     end
   end
@@ -22,8 +24,10 @@ class ContactsController < ApplicationController
   def update
     @contact = current_user.contacts.find(params[:id])
     if @contact.update_attributes(contact_params)
+      flash[:notice] = I18n.t('contacts.alerts.update_notice')
       redirect_to user_contacts_path(current_user)
     else
+      flash.now[:alert] = I18n.t('shared.alert')
       render :edit
     end
   end

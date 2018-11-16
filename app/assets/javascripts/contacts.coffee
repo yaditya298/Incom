@@ -23,3 +23,6 @@ $(document).on 'change', '.connection-info', ->
     $('#select_all_' + group_id).prop('checked', false)
   else if checked_count == total_count
     $('#select_all_' + group_id).prop('checked', true)
+
+$(document).on 'click', '.js_multi_submit', ->
+  $('.modal .close').click()

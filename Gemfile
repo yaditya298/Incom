@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Database
 gem 'pg'

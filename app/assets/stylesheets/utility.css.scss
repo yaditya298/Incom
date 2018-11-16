@@ -40,9 +40,8 @@ $error:   #A94442;
 // flashbar - styling
 .flash {
   position: fixed;
-  z-index: 999;
+  z-index: 1500;
   top: 0;
-  background: rgba(251, 178, 46, 0.8);
   width: 100%;
   p {
     text-align: center;
@@ -51,7 +50,20 @@ $error:   #A94442;
     letter-spacing: 1px;
     font-size: 16px;
     margin: 4px;
+    padding: 10px;
   }
+}
+
+.flash-success {
+  background-color: #3CB371;
+}
+
+.flash-alert {
+  background-color: #DC143C;
+}
+
+.alert {
+  height: 56px;
 }
 
 .incom-brand {
@@ -123,3 +135,9 @@ label abbr {
 .group-title {
   color: $iblue;
 }
+
+.date-tool-tip {
+  z-index: 1100;
+}
+
+.tooltip { pointer-events: none; }

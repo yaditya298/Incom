@@ -7,5 +7,5 @@ $ ->
   setTimeout (->
     $('.flash').fadeOut 'slow', ->
       $(this).remove()
-  ), 1500
-  $('[data-toggle="tooltip"]').tooltip()
+  ), 2000
+  $('[data-toggle="tooltip"]').tooltip({ container: 'body' })

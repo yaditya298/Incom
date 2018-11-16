@@ -2,14 +2,16 @@
 # # All this logic will automatically be available in application.js.
 # # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# $ ->
+$ ->
   destroy_connection = (url) ->
     $.ajax
       type: 'DELETE'
       url: url
       success: (data) ->
         if data.success
-          alert 'Deleted'
+          $('')
+          $('.member_count_' + data.group_id).text data.members_count
+          $('.member_count_' + data.group_id).effect 'highlight', 3000
 
   check_connection = (group_id, contact_id, check_url) ->
     $.ajax

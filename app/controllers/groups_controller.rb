@@ -6,8 +6,10 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(group_params)
     if @group.save
+      flash[:notice] = I18n.t('groups.alerts.notice')
       redirect_to user_groups_path
     else
+      flash.now[:alert] = I18n.t('shared.alert')
       render :new
     end
   end
