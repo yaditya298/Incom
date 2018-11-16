@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "users#index"
   resources :users do
     resources :contacts
-    resources :groups
+    resources :groups do
+      put :modify_status, on: :member
+    end
   end
   resources :connections do
     get :check_info, on: :collection
