@@ -27,7 +27,7 @@ class ConnectionsController < ApplicationController
   def destroy
     connection = Connection.find(params[:id])
     group = connection.group
-    render json: { success:  connection.destroy, group_id: group.id, members_count: group.reload.connections.size }
+    render json: { success:  connection.destroy, group_id: group.id, members_count: group.reload.connections.size, alert_message: I18n.t('connections.alerts.alert', group: group.name) }
   end
 
   # Method to add multiple contacts to a group at once using multi select check_box

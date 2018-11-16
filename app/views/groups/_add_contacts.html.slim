@@ -22,7 +22,7 @@
                   = contact.mobile
                   - checked_value = true
                   span.pull-right
-                    = check_box_tag 'contact_ids[]', contact.id, get_checked_value(contact.id, group.id), class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
+                    = check_box_tag 'contact_ids[]', contact.id, group.contacts.ids.include?(contact.id), class: 'connection-info', id: "contact_#{contact.id}", 'data-group-id': group.id, 'data-contact-id': contact.id, 'data-url': connections_path, 'data-check-connection-url': check_info_connections_path
             - else
               p = i('contacts.none')
               = 'Please click '
