@@ -68,7 +68,8 @@ en:
       avatar: 'Attach that awesome profile picture of yours'
   connections:
     alerts:
-      notice: "Selected buddies have been added to the group %{group}"
+      notice: "Selected buddie(s) have been added to the group %{group}"
+      alert: "Selected buddie(s) have been removed from the group %{group}"
   domains:
     none1: 'MayDay! There are no domains set for your application.'
     none2: 'Its very dangerous as users cannot create their accounts'
