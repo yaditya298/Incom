@@ -12,15 +12,17 @@ class Contact < ApplicationRecord
     minimum: User::NAME_MIN_LENGTH,
     maximum: User::NAME_MAX_LENGTH
   }
-
-  validates :email,  presence: true, uniqueness: {
-    scope: [:user_id, :email]
-  },
-  format: {
-    with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
-    multiline: true,
-    message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
-  }
+  
+  if defined? Domain
+    validates :email,  presence: true, uniqueness: {
+      scope: [:user_id, :email]
+    },
+    format: {
+      with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
+      multiline: true,
+      message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
+    }
+  end
 
   validates :mobile, presence: true, uniqueness: {
     scope: [:user_id, :mobile]
