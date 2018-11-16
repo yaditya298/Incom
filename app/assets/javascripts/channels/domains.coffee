@@ -4,7 +4,12 @@
 
 # Makes the user selected domain as current domain
 $ ->
-  $(document).on 'change', '.set-domain', ->
+  flash = (html_markup) ->
+    $('.flash-content').html(html_markup);
+    $('.flash-content').fadeIn 'normal', ->
+      $(this).delay(3000).fadeOut(2000)
+
+  $(document).on 'change', '.js-set-domain', ->
     $.ajax
       url: $(this).data('url')
       type: 'POST'
@@ -16,6 +21,5 @@ $ ->
         if data.status
           html = '<div class="flash flash-success"><p class="notice">' + data.domain + ' has been made the current domain</p></div>'
         else
-          html = '<div class="flash flash-alert">Could not update the domain. Something went wrong<p class="alert"></p></div>'
-        $('.flash-content').html html
-
+          html = '<div class="flash flash-alert"><p class="alert">Something went wrong</p></div>'
+        flash(html)
