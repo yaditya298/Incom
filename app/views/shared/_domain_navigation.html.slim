@@ -1,6 +1,7 @@
 .col-md-3
   ul.list-group
+    = link_to 'Domains', domains_path, class: get_class(domains_path)
     = link_to 'New Domain', new_domain_path, class: get_class(new_domain_path)
-    / = link_to 'New Group', new_user_group_path(user), class: get_class(new_user_group_path(user))
+    = link_to 'Admin Settings', new_admins_users_path, class: get_class(new_admins_users_path)
     / = link_to 'Favourites', '#', class: get_class
     / = link_to 'Notes', '#',      class: get_class

@@ -4,6 +4,7 @@
     .col-md-8
       - if @domains.present?
         h2 Domains inventory
+        hr
         table.table.table-responsive.table-hover
           thead
             tr
@@ -17,8 +18,7 @@
                 td.col-md-2.date-tool-tip data-toggle='tooltip' title="#{domain.created_at.strftime("#{domain.created_at.day.ordinalize} %h %Y %H:%M%P")}"
                   = time_ago_in_words(domain.created_at, include_seconds: true).to_s + ' ago'
                 td.col-md-2
-                  - checked_value = domain.current? ? true : false
-                  = radio_button_tag 'Add', true, checked_value, class: 'set-domain', id: "domain_#{domain.id}", 'data-domain-id': domain.id, 'data-url': set_domain_path(domain), data: {confirm: 'Are you sure?'}
+                  = radio_button_tag 'Add', true, domain.current?, class: 'js-set-domain', id: "domain_#{domain.id}", 'data-domain-id': domain.id, 'data-url': set_domain_path(domain), data: {confirm: 'Are you sure?'}
                   |  
                   = 'Mark as current'
       - else
