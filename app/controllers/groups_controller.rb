@@ -19,8 +19,14 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = current_user.groups.order(created_at: :desc)
-    @user_contacts = current_user.contacts
+    @groups = User.includes(groups: :contacts).find(current_user.id).groups.order(created_at: :desc)
+    @user_contacts = User.includes(:contacts).find(current_user.id).contacts
+  end
+
+  def modify_status
+    group = current_user.groups.find(params[:id])
+    success = group.update_attributes(active: params[:status])
+    render json: { success: success, name: group.name }
   end
 
   private
