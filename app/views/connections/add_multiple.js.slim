@@ -2,3 +2,6 @@
 | $('.flash-content').html(html);
 | $(".member_count_#{@group.id}").text("#{@members_count}");
 | $(".member_count_#{@group.id}").effect('highlight', 3000);
+| $('.flash-content').fadeIn('normal', function() {
+|   $(this).delay(2000).fadeOut(2000);
+| });
