@@ -1,4 +1,6 @@
 class DomainsController < ApplicationController
+  before_action :check_admin
+
   def new
     @domain = Domain.new
   end
@@ -30,6 +32,13 @@ class DomainsController < ApplicationController
   end
 
   private
+
+  def check_admin
+    unless current_user.admin?
+      flash[:alert] = I18n.t('shared.denied')
+      redirect_to user_groups_path(current_user)
+    end
+  end
 
   def domain_params
     params.require(:domain).permit(:name, :added_by_id)
