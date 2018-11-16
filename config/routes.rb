@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :groups do
       put :modify_status, on: :member
     end
+    get :new_admins, on: :collection
+    put :mark_as_admin, on: :member
   end
   resources :connections do
     get :check_info, on: :collection
