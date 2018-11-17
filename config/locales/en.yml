@@ -47,7 +47,7 @@ en:
       notice: 'Buddy created successfully!'
       update_notice: 'Buddy updated successfully!'
     errors:
-      cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email"
+      cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email instead"
       email_message: 'should be a valid %{domain} email id'
   groups:
     none: 'Uh-oh! your groups are empty but not your gusto!!'
