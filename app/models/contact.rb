@@ -13,16 +13,15 @@ class Contact < ApplicationRecord
     maximum: User::NAME_MAX_LENGTH
   }
   
-  if defined? Domain
-    validates :email,  presence: true, uniqueness: {
-      scope: [:user_id, :email]
-    },
-    format: {
-      with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
-      multiline: true,
-      message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
-    }
-  end
+  domain = defined?(Domain) ? Domain.current.name : Domain::DEFAULT_DOMAIN
+  validates :email,  presence: true, uniqueness: {
+    scope: [:user_id, :email]
+  },
+  format: {
+    with: Regexp.new('^[\w.+\-]+@' + domain.gsub('.', '\.') + '$'),
+    multiline: true,
+    message: I18n.t('contacts.errors.email_message', domain: domain)
+  }
 
   validates :mobile, presence: true, uniqueness: {
     scope: [:user_id, :mobile]

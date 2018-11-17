@@ -23,13 +23,13 @@ class User < ApplicationRecord
     minimum: User::NAME_MIN_LENGTH,
     maximum: User::NAME_MAX_LENGTH
   }
-  if defined? Domain
-    validates :email, presence: true, format: {
-      with: Regexp.new('^[\w.+\-]+@' + Domain.current.name.gsub('.', '\.') + '$'),
-      multiline: true,
-      message: I18n.t('contacts.errors.email_message', domain: Domain.current.name)
-    }
-  end
+
+  domain = defined?(Domain) ? Domain.current.name : Domain::DEFAULT_DOMAIN
+  validates :email, presence: true, format: {
+    with: Regexp.new('^[\w.+\-]+@' + domain.gsub('.', '\.') + '$'),
+    multiline: true,
+    message: I18n.t('contacts.errors.email_message', domain: domain)
+  }
   validates :aadhar_number, uniqueness: true, presence: true, length: {
     is: User::AADHAR_LENGTH
   }
