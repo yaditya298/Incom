@@ -1,15 +1,12 @@
 nav.navbar.navbar-inverse.navbar-fixed-top
   container-fluid
     navbar-header
-      a.navbar-brand href="#" InCoM
+      - home_url = user_signed_in? ? user_contacts_path(user) : ''
+      a.navbar-brand href="#{home_url}" Incom
     - if user_signed_in?
       ul.nav.navbar-nav
-        li.active
-          a href="#" Home
-        li
-          = link_to 'Buddies', user_contacts_path(user)
-        li
-          = link_to 'Groups', user_groups_path(user)
+        li = link_to 'Buddies', user_contacts_path(user)
+        li = link_to 'Groups', user_groups_path(user)
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         - if user.admin?
