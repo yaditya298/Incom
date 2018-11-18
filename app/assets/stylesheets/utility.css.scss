@@ -37,6 +37,10 @@ $error:   #A94442;
   }
 }
 
+.workspace .navbar-header {
+  color: red;
+}
+
 // flashbar - styling
 .flash {
   position: fixed;
@@ -56,10 +60,12 @@ $error:   #A94442;
 
 .flash-success {
   background-color: #3CB371;
+  // right: 0;
 }
 
 .flash-alert {
   background-color: #DC143C;
+  // right: 0;
 }
 
 .alert {
@@ -113,10 +119,17 @@ label abbr {
 
 .back-cover {
   background-image: image-url('inmar_background.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto;
-  height: 100vh;
+  background-color: black;
+}
+
+.custom_panel {
+  margin-top: 20% !important;
 }
 
 // Errors Styling
@@ -141,3 +154,14 @@ label abbr {
 }
 
 .tooltip { pointer-events: none; }
+
+.workspace .navbar-inverse .navbar-brand {
+  color: white;
+  font-weight: bolder;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 30px
+}
+
+.incom-avatar {
+  margin: 55px;
+}
