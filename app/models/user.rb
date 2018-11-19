@@ -30,9 +30,12 @@ class User < ApplicationRecord
     multiline: true,
     message: I18n.t('contacts.errors.email_message', domain: domain)
   }
-  validates :aadhar_number, uniqueness: true, presence: true, length: {
+
+  validates :aadhar_number, uniqueness: true, presence: true, numericality: true, length: {
     is: User::AADHAR_LENGTH
-  }
+  }, format: { with: /\A[1-9]{1}[0-9]{9}$\z/ }
+
+  # Custom Validators
   validate :password_complexity
 
   def password_complexity
