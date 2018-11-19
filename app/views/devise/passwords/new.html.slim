@@ -2,7 +2,7 @@
   = render 'shared/left_side_bar'
   .col-md-4.col-md-offset-1
     = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f|
-      .panel.panel-primary
+      .panel.panel-primary.custom_panel
         .panel-heading Forgot your password?
         .panel-body
           = f.error_notification
