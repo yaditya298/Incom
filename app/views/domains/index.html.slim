@@ -21,7 +21,7 @@
                 td.col-md-2
                   = radio_button_tag 'Add', true, domain.current?, class: 'js-set-domain', id: "domain_#{domain.id}", 'data-domain-id': domain.id, 'data-url': set_domain_path(domain), data: {confirm: 'Are you sure?'}
                   |  
-                  = 'Mark as current'
+                  = domain.current ? 'Current' : 'Mark as current'
       - else
         .well
           p = i('domains.none1')

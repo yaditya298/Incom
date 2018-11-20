@@ -20,6 +20,9 @@ $ ->
       success: (data) ->
         if data.status
           html = '<div class="flash flash-success"><p class="notice">' + data.domain + ' has been made the current domain</p></div>'
+          setTimeout (->
+            location.reload()
+          ), 1500
         else
           html = '<div class="flash flash-alert"><p class="alert">Something went wrong</p></div>'
         flash(html)
