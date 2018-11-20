@@ -1,6 +1,8 @@
 .col-md-3
   ul.list-group
-    = link_to 'New Buddy', new_user_contact_path(user),  class: get_class(new_user_contact_path(user))
-    = link_to 'New Group', new_user_group_path(user),    class: get_class(new_user_group_path(user))
+    - if controller_name == 'contacts'
+      = link_to 'New Buddy', new_user_contact_path(user),  class: get_class(new_user_contact_path(user))
+    - if controller_name == 'groups'
+      = link_to 'New Group', new_user_group_path(user),    class: get_class(new_user_group_path(user))
     = link_to 'Favourites', '#', class: get_class
     = link_to 'Notes', '#',      class: get_class

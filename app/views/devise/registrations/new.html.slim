@@ -10,7 +10,7 @@
           .input-section[style='padding: 20px;']
             = f.input :first_name, placeholder: i('users.placeholders.first_name'), class: 'form-control', autofocus: true
             = f.input :last_name, placeholder: i('users.placeholders.last_name'), class: 'form-control'
-            = f.input :aadhar_number, placeholder: i('users.placeholders.aadhar_number'), class: 'form-control', label: 'Aadhar Number', input_html: { maxlength: User::AADHAR_LENGTH, type: 'number', onKeyPress:"if(this.value.length==10) return false;", min:"0", onkeydown:"javascript: return event.keyCode == 69 || event.keyCode == 190 || event.keyCode == 189 ? false : true" }
+            = f.input :aadhar_number, placeholder: i('users.placeholders.aadhar_number'), class: 'form-control', label: 'Aadhar Number', input_html: { maxlength: User::AADHAR_LENGTH, onKeyPress: "if(this.value.length== #{User::AADHAR_LENGTH}) return false;", min:"0", onkeydown:"javascript: return event.keyCode == 69 || event.keyCode == 190 || event.keyCode == 189 ? false : true" }
             = f.input :email, placeholder: i('users.placeholders.email', domain: Domain.current.name), class: 'form-control', required: true
             - hint = @minimum_password_length ? "#{@minimum_password_length} characters minimum" : ''
             = f.input :password, placeholder: i('users.placeholders.password'), class: 'form-control', hint: hint, required: true

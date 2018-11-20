@@ -43,8 +43,11 @@ en:
       mobile: 'Please do not add +91 or 0'
       email: "Please enter valid %{domain} email"
     none: 'Looks like you have no buddies'
+    add_to_group: ' to add a buddy directly to this group!'
     alerts:
+      groupo_info: 'Your new buddy will be a part of <strong>%{name}</strong> group'
       notice: 'Buddy created successfully!'
+      added_to_group: 'Bravo! Buddy created and added to group %{name} successfully!'
       update_notice: 'Buddy updated successfully!'
     errors:
       cannot_add_self: "Hey! You are trying to be a contact of you! Add your buddy's email instead"

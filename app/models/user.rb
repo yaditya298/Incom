@@ -23,7 +23,6 @@ class User < ApplicationRecord
     minimum: User::NAME_MIN_LENGTH,
     maximum: User::NAME_MAX_LENGTH
   }
-
   domain = defined?(Domain) ? Domain.current.name : Domain::DEFAULT_DOMAIN
   validates :email, presence: true, format: {
     with: Regexp.new('^[\w.+\-]+@' + domain.gsub('.', '\.') + '$'),
@@ -33,7 +32,7 @@ class User < ApplicationRecord
 
   validates :aadhar_number, uniqueness: true, presence: true, numericality: true, length: {
     is: User::AADHAR_LENGTH
-  }, format: { with: /\A[1-9]{1}[0-9]{9}$\z/ }
+  }
 
   # Custom Validators
   validate :password_complexity

@@ -15,4 +15,8 @@ module ApplicationHelper
   def status_list
     [%w[Active true], %w[Inactive false]]
   end
+
+  def get_nav_active_class(path = nil)
+    path && path == request.path ? 'active' : nil
+  end
 end

@@ -165,3 +165,9 @@ label abbr {
 .incom-avatar {
   margin: 55px;
 }
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+      background-color: $iorange !important;
+}

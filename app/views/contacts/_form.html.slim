@@ -3,6 +3,10 @@
     .panel-heading
       = 'Create Buddy'
     .panel-body
+      - if params[:group_id].present?
+        .alert.alert-info
+          = i('contacts.alerts.groupo_info', name: Group.find(params[:group_id]).name).html_safe
+        = hidden_field_tag :group_id, params[:group_id]
       = f.error_notification
       = render 'shared/errors', error_object: contact
       = f.input :name,    placeholder: i('contacts.placeholders.name'),    class: 'form-control', required: true, value: contact.name
