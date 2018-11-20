@@ -4,6 +4,7 @@
     .col-md-8
       - if @domains.present?
         h2 Domains inventory
+        p = i('domains.help')
         hr
         table.table.table-responsive.table-hover
           thead

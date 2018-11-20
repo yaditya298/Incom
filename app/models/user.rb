@@ -15,6 +15,9 @@ class User < ApplicationRecord
   AADHAR_LENGTH   = 12
   PASSWORD_REGEX  = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,24}$/
 
+  # Callbacks
+  after_create :add_admin
+
   # Attachments
   has_one_attached :avatar
 
@@ -48,5 +51,12 @@ class User < ApplicationRecord
 
   def full_name
     [first_name, last_name].join(' ').titleize
+  end
+
+  # This method is added temporarily to see the working mechanism of admin
+  # This method has to be removed. The user who wants to be an admin can be updated from back end for any particular user.
+  # From there that user can manage admin privilages
+  def add_admin
+    update_column(:role, 'admin')
   end
 end

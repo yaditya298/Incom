@@ -81,6 +81,7 @@ en:
       name: 'Example domains are @inmar.com, @im.co, etc'
     alerts:
       notice: 'Domain added successfully'
+    help: 'Configure your domain name from here'
   shared:
     saving: 'Saving...'
     sending: 'Sending...'
